@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Login from './pages/Login';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import UserDashboard from './pages/user/UserDashboard';
+import ActivityLog from './pages/ActivityLog';
 import { isAdmin, isLoggedIn } from './utils/auth';
 import SideMenu from './components/SideMenu'; 
 import AppNavbar from './components/AppNavbar'; 
@@ -23,6 +24,9 @@ function App() {
               )}
               <Route path="/" element={<Navigate to={isAdmin() ? '/admin/dashboard' : '/user/dashboard'} />} />
               <Route path="*" element={<Navigate to={isAdmin() ? '/admin/dashboard' : '/user/dashboard'} />} />
+
+              <Route path="/activityLog" element={<ActivityLog />} />
+              <Route path="*" element={<Navigate to="/activityLog" />} />
             </Routes>
           </Box>
         </Box>
